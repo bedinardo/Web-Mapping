@@ -1,2 +1,2 @@
 # Web-Mapping
-Where I make webmaps 
+Where I submit my web maps
