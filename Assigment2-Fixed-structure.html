@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <title>Fixed Map</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <!--    1.1.  Include the reference to the Mapbox JavaScript here in the <head> of the page  -->
+      <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.js'></script>
+    <!--    1.2 Include the reference to the Mapbox CSS here in the <head> of the page  -->
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.css' rel='stylesheet' />
+    <style>
+    
+        /* 1.4 Insert the CSS code here between the <style> tags */
+          body {margin: 50px; padding: 0px;}
+          #Title {
+            text-align: center;
+            background-color: rgba(10, 57, 24, 0.877);
+            color: papayawhip;
+            border: 2px solid black;
+            padding: 15px;
+        }
+          #map1 {position: relative; height: 300px; width: 100%;}
+
+   
+        /* 2.5.2 Insert additional CSS code here between the <style> tags */
+          #map2 {position: relative; height: 300px; width: 100%;}
+        /* add CSS for map3 here */
+        #map3 {position: relative; height: 300px; width: 100%;}
+    </style>
+  </head>
+
+  <body>
+        <!-- 1.3 Insert the div for the structure of the page here in the <body> of the page -->
+          
+          <div id="Title"> 
+          <h1> <b>Spring 2026 Favorite Fishing Spots </b> </h1>
+          </div>
+          <h1>Spot 1: Guarantee Hole</h1>
+          <p>Guarantee Hole is one of my self-discovered spots. It is only fishable from late fall to early spring, before spring runoff begins and Lookout Point Reservoir fills up. To get there, take highway 58 East from Eugene. After about 35 minutes of driving, you will see a small pull-off area on the right and a Trailhead sign for Eula Ridge. Park here and then proceed down to the little creek. Follow the creek through the tunnel that goes under 58 and pop out right at the hole. Fish a dry dropper and through your first cast close to the bank and you'll be guaranteed a bite.</p>
+          <div id='map1'></div>
+          <hr>
+          <h1>Spot 2: Secret Run</h1>
+          <p>Secret Run is a productive run that is just downstream of Secret Campground off of Forest Road 197. Laying a few miles above HillsCreek Dam the trout found here are likely Cutthroat Rainbow hybrids. These fish are likely smaller on average than those found at Guarantee Hole but they put up a great fight and are not shy. I first fished here during a march brown hatch and had fish surfacing right and left of me. During hatches I'd fish a high floating dry with either a wet-fly or emerge trailing behind. Without a hatch a nymph rig should be productive. I haven't tried any streamers here but I imagine they might work well.</p>
+          <div id='map2'></div>
+        
+          <hr>
+          <h1>Spot 3: Big Swamp Spring Creek</h1>
+          <p>Big Swamp Spring Creek is a beautiful remote spot with no fish. I fished here for the better part of three hours and had zero bites, or rises. The water was crystal clear and even at the fishiest spot I couldn't see a single fish. I image that there just isn't enough food to support a fish population here and that better living it further downstream. However, this is a picturesque spot and was well worth the 1.5 hour drive and then 2 mile bushwack to get here. Located about a mile in half east of the eastern most trailhead for the Middle Fork Willamette Trail Big Swamp is stands a grove of old growth trees. With a relatively clear understory within the forest and practically open meadow near the creek this is a spot worth venturing back to.</p>
+          <div id='map3'></div>
+
+        <script>
+            /* Insert the JavaScript within the <script> tags, within the body */
+            // 2.1 Start with the Mapbox access token
+              mapboxgl.accessToken = 'pk.eyJ1IjoiYmRpbmFyZG8iLCJhIjoiY21uZjdjNjg3MDdkOTJzb2p4NDB3YXgzNiJ9.blvzI6YN8c5MaPDZ4Striw';
+
+            // 2.2 Then initialize the first map
+              var map = new mapboxgl.Map({
+                container: 'map1',
+                style: 'mapbox://styles/bdinardo/cmnwgty4s009k01sr227h6w3y',
+                center: [-122.62017873477575,43.826036478810565],
+                zoom: 15,
+              });
+
+            // 2.3 Add any other variables (such as popups and markers) to the first map
+              var popup = new mapboxgl.Popup()
+            
+                .setText('Here is where I caught my fish first through sight casting. I was able to see the fish and cast right in front of it. The 18 incher sipped the size 20 sparkle dun.')
+             var marker = new mapboxgl.Marker({color:'OliveDrab'})
+                .setLngLat([-122.62017873477575,43.826036478810565]) // starting position [lng, lat]
+                .setPopup(popup) //add the popup to the marker
+                .addTo(map); // add the marker to the map
+
+            // 2.4 Add arguments to disable the map interactivity here
+            // Disable drag and zoom handlers.
+              map.dragPan.disable();
+              map.scrollZoom.disable();
+              map.boxZoom.disable();
+              map.keyboard.disable();
+              map.dragRotate.disable();
+              map.doubleClickZoom.disable();
+              map.touchZoomRotate.disable();
+              map.touchZoomRotate.disableRotation();
+
+            // 2.5.3 Then initialize the 2nd map
+              var map2 = new mapboxgl.Map({
+                container: 'map2',
+                style: 'mapbox://styles/bdinardo/cmnwgty4s009k01sr227h6w3y',
+                center: [-122.44247156002334, 43.51396851859184],
+                zoom: 15,
+              });
+
+            // 2.5.4 Add any other variables (such as markers) to the second map
+              var popup2 = new mapboxgl.Popup()
+                .setText('A rather productive run with a solid number of good sized fish. Had early spring success here with a Blue-Winged Olive Dry, swinging a march brown wet-fly.');
+
+              var marker2 = new mapboxgl.Marker({color:'OliveDrab'})
+                .setLngLat([-122.44247156002334, 43.51396851859184]) // starting position [lng, lat]
+                .setPopup(popup2) //add the popup to the marker
+                .addTo(map2); // add the marker to the map
+
+            // 2.5.5 Add arguments to disable the second map's interactivity here
+              map2.dragPan.disable();
+              map2.scrollZoom.disable();
+              map2.boxZoom.disable();
+              map2.keyboard.disable();
+              map2.dragRotate.disable();
+              map2.doubleClickZoom.disable();
+              map2.touchZoomRotate.disable();
+              map2.touchZoomRotate.disableRotation();
+
+              // map 3
+              var map3 = new mapboxgl.Map({
+                container: 'map3',
+                style: 'mapbox://styles/bdinardo/cmnwgty4s009k01sr227h6w3y',
+                center: [-122.17164484131642,43.426418301730195],
+                zoom: 15,
+              });
+              var popup3 = new mapboxgl.Popup()
+                .setText('Remote spring creek with no trout or any other fish that I could find. Likely not enough food to support a fish population. Beautiful spot though!');
+              var marker3 = new mapboxgl.Marker({color:'OliveDrab'})
+                .setLngLat([-122.17164484131642,43.426418301730195]) 
+                .setPopup(popup3) 
+                .addTo(map3); 
+              //Disable map 3 interactivity
+              map3.dragPan.disable();
+              map3.scrollZoom.disable();
+              map3.boxZoom.disable();
+              map3.keyboard.disable();
+              map3.dragRotate.disable();
+              map3.doubleClickZoom.disable();
+              map3.touchZoomRotate.disable();
+              map3.touchZoomRotate.disableRotation();
+            // 2.6 Change the map pointers
+              map.getCanvas().style.cursor = 'not-allowed';
+              map2.getCanvas().style.cursor = 'not-allowed';
+              map3.getCanvas().style.cursor = 'not-allowed';
+        </script>
+  </body>
+</html>
