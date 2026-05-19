@@ -33,7 +33,7 @@
       "type": "Feature",
       "properties": {
         "image": "photos/IMG_4398.JPG",
-        "caption": "Half Way!"
+        "caption": "IMG_4398.JPG"
       },
       "geometry": {
         "type": "Point",
