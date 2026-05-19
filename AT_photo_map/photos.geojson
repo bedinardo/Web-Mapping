@@ -29,6 +29,20 @@
         ]
       }
     },
+ {
+      "type": "Feature",
+      "properties": {
+        "image": "photos/IMG_4398.JPG",
+        "caption": "Half Way!"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.26681246778607,
+          40.028634085022 
+        ]
+      }
+    },
     {
       "type": "Feature",
       "properties": {
