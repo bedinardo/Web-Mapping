@@ -1,0 +1,75 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "image": "photos/IMG_4115.jpeg",
+        "caption": "IMG_4115.jpeg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -81.37520555555555,
+          36.91233888888889
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "image": "photos/IMG_4254.jpeg",
+        "caption": "IMG_4254.jpeg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.24931388888889,
+          34.55772777777778
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "image": "photos/IMG_4398.JPG",
+        "caption": "Half Way!"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.26681246778607,
+          40.028634085022 
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "image": "photos/IMG_4888.jpeg",
+        "caption": "IMG_4888.jpeg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.83148055555556,
+          44.023380555555555
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "image": "photos/IMG_5387.jpeg",
+        "caption": "IMG_5387.jpeg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -68.92145555555555,
+          45.90445277777778
+        ]
+      }
+    }
+  ]
+}
