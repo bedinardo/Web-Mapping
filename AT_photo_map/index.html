@@ -13,9 +13,12 @@
         body { margin: 0; padding: 0; }
         #map { position: absolute; top: 0; bottom: 0; width: 100%; }
           .popup-image {
-    width: 250px;
-    border-radius: 8px; */
- } 
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+ }
       </style>
   </head>
   <body>
@@ -38,7 +41,7 @@
 
                     // Create popup
                     const popup = new mapboxgl.Popup({
-                        offset: 25
+                        maxWidth: '320px'
                     }).setHTML(`
                         <h3>${feature.properties.caption}</h3>
                         <img 
