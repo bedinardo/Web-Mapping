@@ -19,6 +19,22 @@
     display: block;
     border-radius: 8px;
  }
+        .marker {
+            background-size: cover;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .mapboxgl-popup-content {
+            text-align: center;
+            font-family: 'Arial, sans-serif';
+            border-radius: 10px;
+            padding: 15px;
+            /* box-shadow: 0 2px 10px rgba(0,0,0,0.3); */
+            background-color: #213a12c0;
+        }
       </style>
   </head>
   <body>
@@ -29,10 +45,45 @@
       var map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/bdinardo/cmpn4xln6001p01sseref9rkr',
-        center: [-84, 36],
-        zoom: 4
+        center: [-78, 41],
+        maxZoom: 15,
+        minZoom: 5,
+        zoom: 5
         });
         
+        // map.on('load', () => {
+
+//     map.addSource('at-overview', {
+//         type: 'geojson',
+//         data: 'AT_smallscale.geojson'
+//     });
+
+//     map.addLayer({
+//         id: 'at-overview-line',
+//         type: 'line',
+//         source: 'at-overview',
+
+//         minzoom: 0,
+//         maxzoom: 7,
+
+//         paint: {
+//             'line-color': '#ff6600',
+
+//             'line-width': [
+//                 'interpolate',
+//                 ['linear'],
+//                 ['zoom'],
+//                 0, 1,
+//                 4, 3,
+//                 7, 6
+//             ],
+
+//             'line-opacity': 0.9
+//         }
+//     });
+
+// });
+
         fetch('photos.geojson')
             .then(response => response.json())
             .then(data => {
@@ -49,8 +100,13 @@
                             class="popup-image">
                     `);
 
+                    // Create marker element using image from GeoJSON
+                    const markerElement = document.createElement('div');
+                    markerElement.className = 'marker';
+                    markerElement.style.backgroundImage = `url('${feature.properties.image}')`;
+
                     // Create marker
-                    new mapboxgl.Marker()
+                    new mapboxgl.Marker(markerElement)
                         .setLngLat(feature.geometry.coordinates)
                         .setPopup(popup)
                         .addTo(map);
